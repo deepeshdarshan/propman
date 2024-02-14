@@ -1,0 +1,53 @@
+scalar Long
+
+input PropertyCreateRequest {
+    name: String!
+    description: String
+    price: Float!
+    rating: Int!
+    url: String
+    preference:Int!
+    type: Long!
+}
+
+input PropertyUpdateRequest {
+    id: ID!
+    name: String
+    description: String
+    price: Float
+    rating: Int
+    url: String
+    preference:Int
+    type: Long
+}
+
+type PropertyResponse {
+    id: ID
+    name: String
+    description: String
+    price: Int
+    rating: Int
+    url: String
+    preference:Int
+    type: PropertyTypeResponse
+}
+
+input PropertySearchRequest {
+    name: [String]
+    price: Float
+    rating: [Int]
+    preference: [Int]
+    type: [Long]
+}
+
+extend type Mutation {
+    createProperty(request: PropertyCreateRequest!): PropertyResponse!
+    updateProperty(request: PropertyUpdateRequest!): PropertyResponse!
+}
+
+extend type Query{
+    getPropertyById(id: ID!): PropertyResponse!
+    deletePropertyById(id: ID!): Result
+    getAllProperties: [PropertyResponse]
+    searchProperty(request: PropertySearchRequest!):[PropertyResponse]
+}

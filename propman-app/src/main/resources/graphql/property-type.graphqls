@@ -1,0 +1,25 @@
+input PropertyTypeCreateRequest {
+    name: String!
+}
+
+input PropertyTypeUpdateRequest {
+    id: ID!
+    name: String
+}
+
+type PropertyTypeResponse {
+    id: ID
+    name: String
+    properties: [PropertyResponse]
+}
+
+extend type Mutation {
+    createPropertyType(request: PropertyTypeCreateRequest!): PropertyTypeResponse!
+    updatePropertyType(request: PropertyTypeUpdateRequest!): PropertyTypeResponse!
+}
+
+extend type Query{
+    getPropertyTypeById(id: ID!):PropertyTypeResponse!
+    deletePropertyTypeById(id: ID!):Result
+    getAllPropertyTypes:[PropertyTypeResponse]
+}
