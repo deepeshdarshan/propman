@@ -48,31 +48,45 @@ URL: [http://localhost:8080/playground](http://localhost:8080/playground)
 #### Mutation
 
 ``` 
-mutation createProperty {
-    save(
-        propertyData: {
-            name: "le meridien", 
-            preference: 3, 
-            price: 18500, 
-            rating: 5, 
-            url: "www.lemeridien.com", 
-            description: "five start propertyData at kochi"
-        }
-    ) {
-        id
-        name
+mutation create_property {
+  createProperty(
+    request: {
+      rating: 5
+      preference: 1
+      name: "Holiday Inn"
+      price: 5400
+      type: 105
+      url: "https://cdn1.goibibo.com/gi_dyn/t_fs/https://i.travelapi.com/lodging/4000000/3610000/3601000/3600948/e66ae738_z.jpg"
+      description: "test"
     }
-} 
+  ) {
+    id
+    name
+    rating
+    preference
+    type {
+      name
+    }
+  }
+}
 ```
 
 #### Query
 
 ```
-query getById {
-    getPropertyById(id:202) {
-        name
-        description
+query {
+  search_results: searchProperty (
+    request: {  name: "holiday"}
+  ) {
+    id
+    name
+    rating
+    preference
+    type {
+      id
+      name
     }
+  }
 }
 ```
 
@@ -80,6 +94,6 @@ query getById {
 
 URL: [http://localhost:8080/h2](http://localhost:8080/h2)
 
-Fill in the values as per the screenshot. You can find out the `username/password` from the [h2.yml](/Users/A-10682/Brand-Deepesh/Apps/propertyData-search-app/propertyData-infra-api/src/main/resources/h2.yml)
+Fill in the values as per the screenshot. You can find out the `password` in [h2.yml](/Users/A-10682/Brand-Deepesh/Apps/propertyData-search-app/propertyData-infra-api/src/main/resources/h2.yml)
 
 ![img.png](img.png)
