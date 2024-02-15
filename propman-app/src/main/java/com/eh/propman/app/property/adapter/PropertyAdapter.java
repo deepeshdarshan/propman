@@ -2,11 +2,12 @@ package com.eh.propman.app.property.adapter;
 
 import com.eh.propman.app.property.modal.PropertyCreateRequest;
 import com.eh.propman.app.property.modal.PropertyResponse;
+import com.eh.propman.app.property.modal.PropertySearchRequest;
+import com.eh.propman.app.property.modal.PropertyUpdateRequest;
 import com.eh.propman.app.propertyType.modal.PropertyTypeResponse;
 import com.eh.propman.app.shared.helper.AdapterHelper;
 import com.eh.propman.app.shared.modal.Result;
-import com.eh.propman.app.property.modal.PropertyUpdateRequest;
-import com.eh.propman.app.property.modal.PropertySearchRequest;
+import com.eh.propman.commons.exceptions.PropertyManagementBusinessException;
 import com.eh.propman.domain.data.PropertyData;
 import com.eh.propman.domain.data.PropertySearchData;
 import com.eh.propman.domain.data.PropertyTypeData;
@@ -37,9 +38,13 @@ public class PropertyAdapter extends AdapterHelper {
     }
 
     public PropertyResponse save(final PropertyCreateRequest property) {
-        PropertyData request = conversionService.convert(property, PropertyData.class);
-        PropertyData response = propertyService.saveOrUpdate(request);
-        return conversionService.convert(response, PropertyResponse.class);
+        try {
+            PropertyData request = conversionService.convert(property, PropertyData.class);
+            PropertyData response = propertyService.saveOrUpdate(request);
+            return conversionService.convert(response, PropertyResponse.class);
+        } catch (Exception ex) {
+            throw new PropertyManagementBusinessException(ex);
+        }
     }
 
     public PropertyResponse getById(final Long id) {

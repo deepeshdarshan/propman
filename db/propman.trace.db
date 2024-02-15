@@ -529,3 +529,63 @@ insert into property (description,name,preference,price,rating,type_id,url,id) v
 2024-02-15 13:02:23.261290+05:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
 insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:36:25.421789+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:38:27.504753+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:38:33.866680+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:39:23.314304+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:39:46.087895+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:40:00.974729+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:40:09.280216+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:40:12.057182+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:40:52.220330+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:41:36.619656+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:42:01.712853+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:42:08.928356+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:42:30.058266+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:50:05.596511+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:51:24.999016+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:51:38.885006+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:54:13.332505+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:55:17.043841+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 16:55:32.305578+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 17:00:03.785632+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'PLEASE NOTE: -9 kills the process immediately, and gives it no chance of cleani... (714)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]

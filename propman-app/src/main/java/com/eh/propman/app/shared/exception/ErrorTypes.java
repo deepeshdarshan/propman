@@ -12,7 +12,9 @@ public enum ErrorTypes implements ErrorClassification {
 
     INVALID_PROPERTY("Invalid Property Id"),
 
-    INVALID_PROPERTY_TYPE("Invalid Property Type Id");
+    INVALID_PROPERTY_TYPE("Invalid Property Type Id"),
+
+    INTERNAL_ERROR("Something went wrong");
 
     ErrorTypes(String s) {
     }
