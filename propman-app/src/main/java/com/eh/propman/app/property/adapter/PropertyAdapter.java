@@ -13,6 +13,7 @@ import com.eh.propman.domain.data.PropertySearchData;
 import com.eh.propman.domain.data.PropertyTypeData;
 import com.eh.propman.domain.service.PropertyService;
 import com.eh.propman.domain.service.PropertyTypeService;
+import io.vavr.control.Try;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
@@ -38,13 +39,11 @@ public class PropertyAdapter extends AdapterHelper {
     }
 
     public PropertyResponse save(final PropertyCreateRequest property) {
-        try {
-            PropertyData request = conversionService.convert(property, PropertyData.class);
-            PropertyData response = propertyService.saveOrUpdate(request);
-            return conversionService.convert(response, PropertyResponse.class);
-        } catch (Exception ex) {
-            throw new PropertyManagementBusinessException(ex);
-        }
+        PropertyData request = conversionService.convert(property, PropertyData.class);
+        return Try.of(() -> propertyService.saveOrUpdate(request))
+                .map(response -> conversionService.convert(response, PropertyResponse.class))
+                .onFailure(PropertyManagementBusinessException::new)
+                .get();
     }
 
     public PropertyResponse getById(final Long id) {
@@ -68,8 +67,10 @@ public class PropertyAdapter extends AdapterHelper {
 
     public PropertyResponse update(final PropertyUpdateRequest property) {
         PropertyData request = conversionService.convert(property, PropertyData.class);
-        PropertyData response = propertyService.update(request);
-        return conversionService.convert(response, PropertyResponse.class);
+        return Try.of(() -> propertyService.update(request))
+                .map(response -> conversionService.convert(response, PropertyResponse.class))
+                .onFailure(PropertyManagementBusinessException::new)
+                .get();
     }
 
     public List<PropertyResponse> search(final PropertySearchRequest request) {

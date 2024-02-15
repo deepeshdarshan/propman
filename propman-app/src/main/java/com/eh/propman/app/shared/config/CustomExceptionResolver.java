@@ -13,10 +13,11 @@ public class CustomExceptionResolver extends DataFetcherExceptionResolverAdapter
 
     @Override
     protected GraphQLError resolveToSingleError(Throwable ex, DataFetchingEnvironment env) {
-        ErrorTypes errorType = ex instanceof PropertyManagementException ? resolveErrorType(ex) : ErrorTypes.INTERNAL_ERROR;
+        var errorType = ex instanceof PropertyManagementException ? resolveErrorType(ex) : ErrorTypes.INTERNAL_ERROR;
+        var message = ex instanceof PropertyManagementException ? ex.getMessage() : ex.getCause().getMessage();
         return GraphqlErrorBuilder.newError()
                 .errorType(errorType)
-                .message(ex.getMessage())
+                .message(message)
                 .path(env.getExecutionStepInfo().getPath())
                 .location(env.getField().getSourceLocation())
                 .build();

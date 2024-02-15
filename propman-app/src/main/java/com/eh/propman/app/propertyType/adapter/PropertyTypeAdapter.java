@@ -6,10 +6,12 @@ import com.eh.propman.app.shared.modal.Result;
 import com.eh.propman.app.propertyType.modal.PropertyTypeCreateRequest;
 import com.eh.propman.app.propertyType.modal.PropertyTypeResponse;
 import com.eh.propman.app.propertyType.modal.PropertyTypeUpdateRequest;
+import com.eh.propman.commons.exceptions.PropertyManagementBusinessException;
 import com.eh.propman.domain.data.PropertyData;
 import com.eh.propman.domain.data.PropertyTypeData;
 import com.eh.propman.domain.service.PropertyService;
 import com.eh.propman.domain.service.PropertyTypeService;
+import io.vavr.control.Try;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
@@ -36,8 +38,10 @@ public class PropertyTypeAdapter extends AdapterHelper {
 
     public PropertyTypeResponse save(final PropertyTypeCreateRequest property) {
         PropertyTypeData request = conversionService.convert(property, PropertyTypeData.class);
-        PropertyTypeData response = propertyTypeService.saveOrUpdate(request);
-        return conversionService.convert(response, PropertyTypeResponse.class);
+        return Try.of(() -> propertyTypeService.saveOrUpdate(request))
+                .map(response -> conversionService.convert(response, PropertyTypeResponse.class))
+                .onFailure(PropertyManagementBusinessException::new)
+                .get();
     }
 
     public PropertyTypeResponse getById(final Long id) {
@@ -61,8 +65,10 @@ public class PropertyTypeAdapter extends AdapterHelper {
 
     public PropertyTypeResponse update(final PropertyTypeUpdateRequest property) {
         PropertyTypeData request = conversionService.convert(property, PropertyTypeData.class);
-        PropertyTypeData response = propertyTypeService.update(request);
-        return conversionService.convert(response, PropertyTypeResponse.class);
+        return Try.of(() -> propertyTypeService.update(request))
+                .map(response -> conversionService.convert(response, PropertyTypeResponse.class))
+                .onFailure(PropertyManagementBusinessException::new)
+                .get();
     }
 
     public Map<PropertyTypeResponse, List<PropertyResponse>> getProperties(List<PropertyTypeResponse> propertyTypes) {
