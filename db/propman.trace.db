@@ -508,3 +508,24 @@ SELECT p.id, p.description, p.name, p.preference, p.price, p.rating, p.url from 
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
+2024-02-15 12:58:44.497415+05:30 jdbc[54]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 13:00:00.267441+05:30 jdbc[54]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 13:00:46.080746+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 13:01:33.303824+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 13:01:36.422879+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 13:01:53.326985+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]
+2024-02-15 13:02:23.261290+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Holiday Inn Cochin caters to the everyday traveler who is urbane and wants to r... (268)"; SQL statement:
+insert into property (description,name,preference,price,rating,type_id,url,id) values (?,?,?,?,?,?,?,?) [22001-224]

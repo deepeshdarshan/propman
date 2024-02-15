@@ -44,14 +44,14 @@ public class PropertyDomainService extends DomainServiceHelper implements Proper
     }
 
     @Override
-    public PropertyData saveOrUpdate(final PropertyData requestData) throws PropertyManagementException {
-        Objects.requireNonNull(requestData, "PropertyData cannot be null");
-        Property property = conversionService.convert(requestData, Property.class);
+    public PropertyData saveOrUpdate(final PropertyData propertyData) throws PropertyManagementException {
+        Objects.requireNonNull(propertyData, "PropertyData cannot be null");
+        PropertyType typeById = propertyTypeRepository.findById(propertyData.getTypeId())
+                .orElseThrow(noPropertyTypeFoundException(propertyData.getTypeId()));
+        PropertyType propertyType = PropertyType.builder().withId(typeById.getId()).withName(typeById.getName()).build();
+        Property property = conversionService.convert(propertyData, Property.class);
         assert property != null;
-        PropertyType propertyType = propertyTypeRepository.findById(requestData.getTypeId())
-                .orElseThrow(noPropertyTypeFoundException(requestData.getTypeId()));
-        property.toBuilder().withType(propertyType);
-        Property propertyResponse = repository.save(property);
+        Property propertyResponse = repository.save(property.toBuilder().withType(propertyType).build());
         return conversionService.convert(propertyResponse, PropertyData.class);
     }
 
