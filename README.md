@@ -94,6 +94,6 @@ query {
 
 URL: [http://localhost:8080/h2](http://localhost:8080/h2)
 
-Fill in the values as per the screenshot. You can find out the `password` in [h2.yml](/Users/A-10682/Brand-Deepesh/Apps/propertyData-search-app/propertyData-infra-api/src/main/resources/h2.yml)
+Fill in the values as per the screenshot. You will get the`password`from [h2.yml](./propman-infra/src/main/resources/h2.yml)
 
 ![img.png](img.png)
