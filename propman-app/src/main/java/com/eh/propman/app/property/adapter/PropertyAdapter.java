@@ -54,9 +54,7 @@ public class PropertyAdapter extends AdapterHelper {
 
     public List<PropertyResponse> getAll() {
         List<PropertyData> propertyDataList = propertyService.getAll();
-        return propertyDataList.stream()
-                .map(prop -> conversionService.convert(prop, PropertyResponse.class))
-                .collect(Collectors.toList());
+        return toPropertyResponse(propertyDataList);
     }
 
     public Result deleteById(final Long id) {
@@ -76,9 +74,7 @@ public class PropertyAdapter extends AdapterHelper {
     public List<PropertyResponse> search(final PropertySearchRequest request) {
         PropertySearchData propertySearchData = conversionService.convert(request, PropertySearchData.class);
         List<PropertyData> propertyDataList = propertyService.search(propertySearchData);
-        return propertyDataList.stream()
-                .map(prop -> conversionService.convert(prop, PropertyResponse.class))
-                .collect(Collectors.toList());
+        return toPropertyResponse(propertyDataList);
     }
 
     public PropertyTypeResponse getType(final Long id) {
@@ -87,5 +83,11 @@ public class PropertyAdapter extends AdapterHelper {
         return Optional.ofNullable(response)
                 .map(data -> conversionService.convert(data, PropertyTypeResponse.class))
                 .orElse(null);
+    }
+
+    private List<PropertyResponse> toPropertyResponse(List<PropertyData> propertyDataList) {
+        return propertyDataList.stream()
+                .map(prop -> conversionService.convert(prop, PropertyResponse.class))
+                .collect(Collectors.toList());
     }
 }
