@@ -1,7 +1,5 @@
 package com.eh.propman.app.property.modal;
 
-import com.eh.propman.app.propertyType.modal.PropertyTypeResponse;
-import com.eh.propman.infra.entity.PropertyType;
 import lombok.Builder;
 import lombok.Data;
 

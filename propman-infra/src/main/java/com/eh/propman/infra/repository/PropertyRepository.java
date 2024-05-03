@@ -11,5 +11,4 @@ import java.util.List;
 
 @Repository
 public interface PropertyRepository extends JpaRepository<Property, Long>, JpaSpecificationExecutor<Property> {
-
 }

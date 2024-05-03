@@ -37,7 +37,6 @@ public class PropertyDomainService extends DomainServiceHelper implements Proper
     public PropertyDomainService(PropertyRepository repository,
                                  PropertyTypeRepository propertyTypeRepository,
                                  ConversionService conversionService) {
-        super(conversionService);
         this.repository = repository;
         this.propertyTypeRepository = propertyTypeRepository;
         this.conversionService = conversionService;
@@ -115,5 +114,12 @@ public class PropertyDomainService extends DomainServiceHelper implements Proper
                 .collect(Collectors.groupingBy(property -> property.getType().getId()));
         return propertyMap.entrySet().stream()
                 .collect(Collectors.toMap(e -> propertyTypeMap.get(e.getKey()), e -> getPropertyData(e.getValue())));
+    }
+
+    private List<PropertyData> getPropertyData(List<Property> properties) {
+        return properties.stream()
+                .filter(Objects::nonNull)
+                .map(prop -> conversionService.convert(prop, PropertyData.class))
+                .toList();
     }
 }

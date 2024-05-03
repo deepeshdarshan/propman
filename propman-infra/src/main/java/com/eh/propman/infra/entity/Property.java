@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
+
+import static com.eh.propman.infra.util.InfraConstants.*;
 
 @Entity(name = "property")
 @Getter
@@ -40,4 +43,10 @@ public class Property implements Serializable {
 
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
     private PropertyType type;
+
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JoinTable(name = PROPERTY_AMENITY,
+            joinColumns = @JoinColumn(name = PROPERTY_ID, referencedColumnName = Property_.ID),
+            inverseJoinColumns = @JoinColumn(name = AMENITY_ID, referencedColumnName = Amenity_.ID))
+    private List<Amenity> amenities;
 }

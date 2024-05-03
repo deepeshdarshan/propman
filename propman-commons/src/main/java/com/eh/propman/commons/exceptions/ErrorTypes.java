@@ -8,6 +8,8 @@ public enum ErrorTypes {
 
     PROPERTY_TYPE_NOT_FOUND("Property Type Not Found"),
 
+    AMENITY_NOT_FOUND("Amenity Not Found"),
+
     INVALID_PROPERTY("Invalid Property Id"),
 
     INVALID_PROPERTY_TYPE("Invalid Property Type Id"),

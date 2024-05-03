@@ -12,7 +12,7 @@
     <artifactId>propman</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>propertyData-management-application</name>
+    <name>propman</name>
     <description>Property Management Application Network</description>
     <modules>
         <module>propman-app</module>
@@ -28,6 +28,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
         </dependency>
 
         <dependency>

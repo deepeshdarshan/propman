@@ -1,5 +1,6 @@
 package com.eh.propman.infra.specification;
 
+import com.eh.propman.infra.entity.Amenity_;
 import com.eh.propman.infra.entity.Property;
 import com.eh.propman.infra.entity.PropertyType_;
 import com.eh.propman.infra.entity.Property_;
@@ -44,5 +45,11 @@ public class PropertySearchSpecification {
         return (root, query, cb) -> CollectionUtils.isEmpty(typeIds)
                 ? cb.conjunction()
                 : root.get(Property_.TYPE).get(PropertyType_.ID).in(typeIds);
+    }
+
+    public static Specification<Property> byAmenity(Collection<Long> amenityIds) {
+        return (root, query, cb) -> CollectionUtils.isEmpty(amenityIds)
+                ? cb.conjunction()
+                : root.get(Property_.AMENITIES).get(Amenity_.ID).in(amenityIds);
     }
 }

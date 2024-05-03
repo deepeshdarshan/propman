@@ -1,0 +1,12 @@
+input AmenityCreateRequest {
+    name: String!
+}
+
+type AmenityResponse {
+    id: ID!
+    name: String
+}
+
+extend type Mutation {
+    createAmenity(request: AmenityCreateRequest!): AmenityResponse!
+}

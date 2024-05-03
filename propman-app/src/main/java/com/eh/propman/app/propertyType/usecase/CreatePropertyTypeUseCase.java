@@ -14,7 +14,6 @@ public class CreatePropertyTypeUseCase {
 
     private final PropertyTypeAdapter propertyTypeAdapter;
 
-
     public CreatePropertyTypeUseCase(PropertyTypeAdapter propertyTypeAdapter) {
         this.propertyTypeAdapter = propertyTypeAdapter;
     }

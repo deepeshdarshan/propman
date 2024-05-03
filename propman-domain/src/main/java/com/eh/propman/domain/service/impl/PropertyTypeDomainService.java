@@ -23,7 +23,6 @@ public class PropertyTypeDomainService extends DomainServiceHelper implements Pr
     private final ConversionService conversionService;
 
     public PropertyTypeDomainService(PropertyTypeRepository repository, ConversionService conversionService) {
-        super(conversionService);
         this.repository = repository;
         this.conversionService = conversionService;
     }
