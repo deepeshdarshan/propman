@@ -1,4 +1,4 @@
-package com.eh.propman.app.amenity.Extension
+package com.eh.propman.app.amenity.extension
 
 import com.eh.propman.app.amenity.modal.AmenityCreateRequest
 import com.eh.propman.app.amenity.modal.AmenityResponse

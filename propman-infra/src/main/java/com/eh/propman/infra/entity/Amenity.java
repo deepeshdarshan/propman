@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.util.List;
 
+import static com.eh.propman.infra.util.InfraConstants.AMENITIES;
+
 @Entity(name = "amenity")
 @Getter
 @Setter
@@ -23,6 +25,6 @@ public class Amenity {
     @Column(name = Amenity_.NAME, nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "amenities", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = AMENITIES, cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private List<Property> properties;
 }

@@ -4,10 +4,12 @@ import com.eh.propman.app.property.modal.PropertySearchRequest;
 import com.eh.propman.domain.data.PropertySearchData;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
-import java.util.Collections;
 import java.util.List;
+
+import static java.util.Collections.emptyList;
+import static java.util.List.copyOf;
+import static org.springframework.util.CollectionUtils.isEmpty;
 
 @Service
 public class PropertySearchRequestToDataConverter implements Converter<PropertySearchRequest, PropertySearchData> {
@@ -15,11 +17,15 @@ public class PropertySearchRequestToDataConverter implements Converter<PropertyS
     @Override
     public PropertySearchData convert(PropertySearchRequest source) {
         return PropertySearchData.builder()
-                .withTypes(CollectionUtils.isEmpty(source.getType()) ? Collections.emptyList() : List.copyOf(source.getType()))
-                .withNames(CollectionUtils.isEmpty(source.getName()) ? Collections.emptyList() : List.copyOf(source.getName()))
+                .withTypes(getCopyOrEmptyList(source.getType()))
+                .withNames(getCopyOrEmptyList(source.getName()))
                 .withPrice(source.getPrice())
-                .withRatings(CollectionUtils.isEmpty(source.getRating()) ? Collections.emptyList() : List.copyOf(source.getRating()))
-                .withPreferences(CollectionUtils.isEmpty(source.getPreference()) ? Collections.emptyList() : List.copyOf(source.getPreference()))
+                .withRatings(getCopyOrEmptyList(source.getRating()))
+                .withPreferences(getCopyOrEmptyList(source.getPreference()))
                 .build();
+    }
+
+    private <T> List<T> getCopyOrEmptyList(List<T> sourceList) {
+        return isEmpty(sourceList) ? emptyList() : copyOf(sourceList);
     }
 }
