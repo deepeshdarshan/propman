@@ -10,6 +10,7 @@ input AmenityUpdateRequest {
 type AmenityResponse {
     id: ID!
     name: String
+    properties: [PropertyResponse]
 }
 
 extend type Mutation {

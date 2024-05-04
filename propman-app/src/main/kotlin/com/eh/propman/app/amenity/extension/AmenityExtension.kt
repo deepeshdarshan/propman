@@ -16,3 +16,11 @@ fun AmenityData.toResponse(): AmenityResponse {
 fun AmenityUpdateRequest.toData(): AmenityData {
     return AmenityData(id = this.id, name = this.name)
 }
+
+fun AmenityResponse.toData(): AmenityData {
+    return AmenityData(id = this.id, name = this.name)
+}
+
+fun List<AmenityResponse>.toData(): List<AmenityData> {
+    return this.map { it.toData() }
+}

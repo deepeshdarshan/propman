@@ -1,6 +1,7 @@
 package com.eh.propman.domain.service.impl;
 
 import com.eh.propman.commons.utils.CommonsUtils;
+import com.eh.propman.domain.data.AmenityData;
 import com.eh.propman.domain.data.PropertyData;
 import com.eh.propman.domain.data.PropertySearchData;
 import com.eh.propman.domain.data.PropertyTypeData;
@@ -123,6 +124,11 @@ public class PropertyDomainService extends DomainServiceHelper implements Proper
                 .collect(Collectors.groupingBy(property -> property.getType().getId()));
         return propertyMap.entrySet().stream()
                 .collect(Collectors.toMap(e -> propertyTypeMap.get(e.getKey()), e -> getPropertyData(e.getValue())));
+    }
+
+    @Override
+    public Map<AmenityData, List<PropertyData>> getPropertiesByAmenity(List<AmenityData> amenityDataList) {
+        return null;
     }
 
     private List<PropertyData> getPropertyData(List<Property> properties) {

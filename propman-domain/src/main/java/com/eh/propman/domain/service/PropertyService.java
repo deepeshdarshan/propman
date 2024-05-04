@@ -1,5 +1,6 @@
 package com.eh.propman.domain.service;
 
+import com.eh.propman.domain.data.AmenityData;
 import com.eh.propman.domain.data.PropertyData;
 import com.eh.propman.domain.data.PropertySearchData;
 import com.eh.propman.domain.data.PropertyTypeData;
@@ -26,5 +27,6 @@ public interface PropertyService {
 
     Map<PropertyTypeData, List<PropertyData>> getPropertiesByType(List<PropertyTypeData> propertyTypeDataList);
 
+    Map<AmenityData, List<PropertyData>> getPropertiesByAmenity(List<AmenityData> amenityDataList);
 
 }
