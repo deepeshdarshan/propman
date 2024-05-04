@@ -22,6 +22,7 @@ public class PropertySearchRequestToDataConverter implements Converter<PropertyS
                 .withPrice(source.getPrice())
                 .withRatings(getCopyOrEmptyList(source.getRating()))
                 .withPreferences(getCopyOrEmptyList(source.getPreference()))
+                .withAmenities(getCopyOrEmptyList(source.getAmenity()))
                 .build();
     }
 

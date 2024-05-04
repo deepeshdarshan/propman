@@ -18,4 +18,6 @@ public class PropertySearchRequest {
     private List<Integer> preference;
 
     private List<Long> type;
+
+    private List<Long> amenity;
 }

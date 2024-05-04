@@ -86,11 +86,13 @@ public class PropertyDomainService extends DomainServiceHelper implements Proper
     public List<PropertyData> search(final PropertySearchData propertySearchData) throws PropertyManagementException {
         Objects.requireNonNull(propertySearchData, "PropertySearchData cannot be null");
         List<Long> typeIds = List.copyOf(propertySearchData.getTypes());
+        List<Long> amenityIds = List.copyOf(propertySearchData.getAmenities());
         Specification<Property> searchSpecifications = byName(propertySearchData.getNames())
                 .and(byPrice(propertySearchData.getPrice()))
                 .and(byPreference(propertySearchData.getPreferences()))
                 .and(byRating(propertySearchData.getRatings()))
-                .and(byType(typeIds));
+                .and(byType(typeIds))
+                .and(byAmenity(amenityIds));
         List<Property> properties = repository.findAll(Specification.where(searchSpecifications));
         return getPropertyData(properties);
     }

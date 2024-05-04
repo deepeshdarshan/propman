@@ -41,6 +41,7 @@ input PropertySearchRequest {
     rating: [Int]
     preference: [Int]
     type: [Long]
+    amenity: [Long]
 }
 
 extend type Mutation {
