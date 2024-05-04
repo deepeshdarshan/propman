@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.eh</groupId>
     <artifactId>propman</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>propman</name>
     <description>Property Management Application Network</description>
@@ -22,6 +22,7 @@
     </modules>
     <properties>
         <java.version>17</java.version>
+        <kotlin.version>1.9.23</kotlin.version>
     </properties>
     <dependencies>
 

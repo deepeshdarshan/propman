@@ -1,4 +1,4 @@
-package com.eh.propman.app.shared.config;
+package com.eh.propman.app.common.config;
 
 import graphql.scalars.ExtendedScalars;
 import org.springframework.context.annotation.Bean;

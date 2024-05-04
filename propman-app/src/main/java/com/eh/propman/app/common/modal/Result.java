@@ -1,9 +1,11 @@
-package com.eh.propman.app.shared.modal;
+package com.eh.propman.app.common.modal;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Builder(setterPrefix = "with")
 public class Result {
 

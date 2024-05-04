@@ -4,7 +4,7 @@ import com.eh.propman.domain.data.AmenityData
 
 interface AmenityService {
 
-        fun save(data: AmenityData): AmenityData
+        fun saveOrUpdate(data: AmenityData): AmenityData
 
         fun getById(id: Long): AmenityData
 

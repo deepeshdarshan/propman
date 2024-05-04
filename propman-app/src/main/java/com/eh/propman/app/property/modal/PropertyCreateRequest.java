@@ -4,6 +4,8 @@ package com.eh.propman.app.property.modal;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class PropertyCreateRequest {
@@ -21,4 +23,6 @@ public class PropertyCreateRequest {
     private Integer preference;
 
     private Long type;
+
+    private List<Long> amenities;
 }

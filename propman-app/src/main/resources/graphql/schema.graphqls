@@ -3,9 +3,19 @@ type Result {
     status: Status
 }
 
+type AppResult {
+    id: ID
+    status: Status
+}
+
 enum Status {
     SUCCESS,
     FAILED
+}
+
+enum AppStatus {
+    SUCCESS,
+    FAILURE
 }
 
 type Mutation {

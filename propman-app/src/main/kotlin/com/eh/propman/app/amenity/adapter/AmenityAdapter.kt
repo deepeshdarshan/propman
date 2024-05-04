@@ -5,17 +5,16 @@ import com.eh.propman.app.amenity.extension.toResponse
 import com.eh.propman.app.amenity.modal.AmenityCreateRequest
 import com.eh.propman.app.amenity.modal.AmenityResponse
 import com.eh.propman.app.amenity.modal.AmenityUpdateRequest
-import com.eh.propman.app.shared.helper.AdapterHelper
-import com.eh.propman.app.shared.modal.Result
-import com.eh.propman.app.shared.modal.Status
+import com.eh.propman.app.common.modal.AppResult
+import com.eh.propman.app.common.modal.AppStatus
 import com.eh.propman.domain.service.AmenityService
 import org.springframework.stereotype.Service
 
 @Service
-class AmenityAdapter(private val amenityService: AmenityService): AdapterHelper() {
+class AmenityAdapter(private val amenityService: AmenityService) {
 
     fun save(request: AmenityCreateRequest): AmenityResponse {
-        val amenity = amenityService.save(request.toData())
+        val amenity = amenityService.saveOrUpdate(request.toData())
         return amenity.toResponse()
     }
 
@@ -24,9 +23,10 @@ class AmenityAdapter(private val amenityService: AmenityService): AdapterHelper(
         return amenity.toResponse()
     }
 
-    fun deleteById(id: Long): Result {
+
+    fun deleteById(id: Long): AppResult {
         val amenityId = amenityService.deleteById(id)
-        return Result.builder().withId(amenityId).withStatus(Status.SUCCESS).build()
+        return AppResult(amenityId, AppStatus.SUCCESS)
     }
 
     fun getById(id: Long): AmenityResponse {

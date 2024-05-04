@@ -6,6 +6,8 @@ import com.eh.propman.domain.data.PropertyTypeData;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Service;
 
+import static java.util.List.copyOf;
+
 @Service
 public class PropertyUpdateRequestToDataConverter implements Converter<PropertyUpdateRequest, PropertyData> {
 
@@ -20,6 +22,7 @@ public class PropertyUpdateRequestToDataConverter implements Converter<PropertyU
                 .withRating(source.getRating())
                 .withPrice(source.getPrice())
                 .withTypeId(source.getType())
+                .withAmenities(copyOf(source.getAmenities()))
                 .build();
     }
 }

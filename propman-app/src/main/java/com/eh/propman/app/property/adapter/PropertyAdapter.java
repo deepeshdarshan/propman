@@ -1,12 +1,13 @@
 package com.eh.propman.app.property.adapter;
 
+import com.eh.propman.app.common.helper.AdapterHelper;
+import com.eh.propman.app.common.modal.Result;
+import com.eh.propman.app.common.modal.Status;
 import com.eh.propman.app.property.modal.PropertyCreateRequest;
 import com.eh.propman.app.property.modal.PropertyResponse;
 import com.eh.propman.app.property.modal.PropertySearchRequest;
 import com.eh.propman.app.property.modal.PropertyUpdateRequest;
 import com.eh.propman.app.propertyType.modal.PropertyTypeResponse;
-import com.eh.propman.app.shared.helper.AdapterHelper;
-import com.eh.propman.app.shared.modal.Result;
 import com.eh.propman.commons.exceptions.PropertyManagementBusinessException;
 import com.eh.propman.domain.data.PropertyData;
 import com.eh.propman.domain.data.PropertySearchData;
@@ -20,8 +21,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static com.eh.propman.app.shared.modal.Status.SUCCESS;
 
 @Service
 public class PropertyAdapter extends AdapterHelper {
@@ -60,7 +59,7 @@ public class PropertyAdapter extends AdapterHelper {
     public Result deleteById(final Long id) {
         validateProperty(id);
         Long propertyId = propertyService.deleteById(id);
-        return Result.builder().withId(propertyId).withStatus(SUCCESS).build();
+        return Result.builder().withId(propertyId).withStatus(Status.SUCCESS).build();
     }
 
     public PropertyResponse update(final PropertyUpdateRequest property) {

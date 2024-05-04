@@ -1,5 +1,7 @@
 package com.eh.propman.commons.exceptions;
 
+import com.eh.propman.commons.error.ErrorTypes;
+
 import java.text.MessageFormat;
 
 public class InvalidPropertyTypeException extends PropertyManagementException {

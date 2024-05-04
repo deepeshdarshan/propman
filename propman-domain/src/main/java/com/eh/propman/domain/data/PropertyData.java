@@ -4,6 +4,8 @@ import com.eh.propman.infra.entity.PropertyType;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Builder(toBuilder = true, setterPrefix = "with")
 public class PropertyData {
@@ -23,4 +25,6 @@ public class PropertyData {
     private Integer preference;
 
     private Long typeId;
+
+    private List<Long> amenities;
 }

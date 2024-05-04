@@ -1,6 +1,6 @@
 package com.eh.propman.domain.service.impl
 
-import com.eh.propman.commons.utils.CommonsUtils
+import com.eh.propman.commons.utils.ObjectUtils
 import com.eh.propman.domain.extension.toData
 import com.eh.propman.domain.extension.toEntity
 import com.eh.propman.domain.data.AmenityData
@@ -13,7 +13,7 @@ import java.util.*
 @Service
 class AmenityDomainService(private val repository: AmenityRepository): DomainServiceHelper(), AmenityService {
 
-    override fun save(data: AmenityData): AmenityData {
+    override fun saveOrUpdate(data: AmenityData): AmenityData {
         Objects.requireNonNull(data, "Amenity data cannot be null")
         val amenity = repository.save(data.toEntity())
         return amenity.toData()
@@ -40,8 +40,7 @@ class AmenityDomainService(private val repository: AmenityRepository): DomainSer
     override fun update(data: AmenityData): AmenityData {
         Objects.requireNonNull(data, "Amenity data cannot be null")
         val amenityData = getById(data.id!!)
-        CommonsUtils.copyProperties(data, amenityData)
-        val amenity = repository.save(data.toEntity())
-        return amenity.toData()
+        ObjectUtils.copyProperties(data, amenityData)
+        return saveOrUpdate(data)
     }
 }

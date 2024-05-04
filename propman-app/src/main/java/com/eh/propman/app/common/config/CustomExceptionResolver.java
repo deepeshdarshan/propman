@@ -1,6 +1,6 @@
-package com.eh.propman.app.shared.config;
+package com.eh.propman.app.common.config;
 
-import com.eh.propman.app.shared.exception.ErrorTypes;
+import com.eh.propman.app.common.error.ErrorTypes;
 import com.eh.propman.commons.exceptions.PropertyManagementException;
 import graphql.GraphQLError;
 import graphql.GraphqlErrorBuilder;

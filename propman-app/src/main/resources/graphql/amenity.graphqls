@@ -2,6 +2,11 @@ input AmenityCreateRequest {
     name: String!
 }
 
+input AmenityUpdateRequest {
+    id: ID!
+    name: String!
+}
+
 type AmenityResponse {
     id: ID!
     name: String
@@ -9,4 +14,10 @@ type AmenityResponse {
 
 extend type Mutation {
     createAmenity(request: AmenityCreateRequest!): AmenityResponse!
+    updateAmenity(request: AmenityUpdateRequest!): AmenityResponse!
+}
+
+extend type Query {
+    deleteAmenityById(id: ID!): AppResult!
+    getAmenityById(id: ID!): AmenityResponse!
 }

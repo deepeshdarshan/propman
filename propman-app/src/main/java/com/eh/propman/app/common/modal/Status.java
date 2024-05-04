@@ -1,4 +1,4 @@
-package com.eh.propman.app.shared.modal;
+package com.eh.propman.app.common.modal;
 
 public enum Status {
 

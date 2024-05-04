@@ -1,15 +1,10 @@
 package com.eh.propman.domain.service.helper;
 
-import com.eh.propman.commons.exceptions.ErrorTypes;
+import com.eh.propman.commons.error.ErrorTypes;
 import com.eh.propman.commons.exceptions.NoAmenityFoundException;
 import com.eh.propman.commons.exceptions.NoPropertyFoundException;
 import com.eh.propman.commons.exceptions.NoPropertyTypeFoundException;
-import com.eh.propman.domain.data.PropertyData;
-import com.eh.propman.infra.entity.Property;
-import org.springframework.core.convert.ConversionService;
 
-import java.util.List;
-import java.util.Objects;
 import java.util.function.Supplier;
 
 public class DomainServiceHelper {

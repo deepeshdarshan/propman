@@ -1,6 +1,6 @@
-package com.eh.propman.app.shared.helper;
+package com.eh.propman.app.common.helper;
 
-import com.eh.propman.commons.exceptions.ErrorTypes;
+import com.eh.propman.commons.error.ErrorTypes;
 import com.eh.propman.commons.exceptions.InvalidPropertyException;
 import com.eh.propman.commons.exceptions.InvalidPropertyTypeException;
 

@@ -7,8 +7,10 @@ import com.eh.propman.domain.data.PropertyTypeData;
 import com.eh.propman.commons.exceptions.PropertyManagementException;
 import com.eh.propman.domain.service.PropertyService;
 import com.eh.propman.domain.service.helper.DomainServiceHelper;
+import com.eh.propman.infra.entity.Amenity;
 import com.eh.propman.infra.entity.Property;
 import com.eh.propman.infra.entity.PropertyType;
+import com.eh.propman.infra.repository.AmenityRepository;
 import com.eh.propman.infra.repository.PropertyRepository;
 import com.eh.propman.infra.repository.PropertyTypeRepository;
 import org.springframework.core.convert.ConversionService;
@@ -23,6 +25,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static com.eh.propman.infra.specification.PropertySearchSpecification.*;
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class PropertyDomainService extends DomainServiceHelper implements PropertyService {
@@ -31,26 +34,30 @@ public class PropertyDomainService extends DomainServiceHelper implements Proper
 
     private final PropertyTypeRepository propertyTypeRepository;
 
+    private final AmenityRepository amenityRepository;
+
     private final ConversionService conversionService;
 
 
     public PropertyDomainService(PropertyRepository repository,
                                  PropertyTypeRepository propertyTypeRepository,
+                                 AmenityRepository amenityRepository,
                                  ConversionService conversionService) {
         this.repository = repository;
         this.propertyTypeRepository = propertyTypeRepository;
+        this.amenityRepository = amenityRepository;
         this.conversionService = conversionService;
     }
 
     @Override
     public PropertyData saveOrUpdate(final PropertyData propertyData) throws PropertyManagementException {
         Objects.requireNonNull(propertyData, "PropertyData cannot be null");
-        PropertyType typeById = propertyTypeRepository.findById(propertyData.getTypeId())
+        PropertyType propertyType = propertyTypeRepository.findById(propertyData.getTypeId())
                 .orElseThrow(noPropertyTypeFoundException(propertyData.getTypeId()));
-        PropertyType propertyType = PropertyType.builder().withId(typeById.getId()).withName(typeById.getName()).build();
+        List<Amenity> amenities = amenityRepository.findAllById(propertyData.getAmenities());
         Property property = conversionService.convert(propertyData, Property.class);
         assert property != null;
-        Property propertyResponse = repository.save(property.toBuilder().withType(propertyType).build());
+        Property propertyResponse = repository.save(property.toBuilder().withType(propertyType).withAmenities(amenities).build());
         return conversionService.convert(propertyResponse, PropertyData.class);
     }
 

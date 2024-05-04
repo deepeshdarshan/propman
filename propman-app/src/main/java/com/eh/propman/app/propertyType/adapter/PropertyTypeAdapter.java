@@ -1,8 +1,9 @@
 package com.eh.propman.app.propertyType.adapter;
 
+import com.eh.propman.app.common.helper.AdapterHelper;
+import com.eh.propman.app.common.modal.Result;
+import com.eh.propman.app.common.modal.Status;
 import com.eh.propman.app.property.modal.PropertyResponse;
-import com.eh.propman.app.shared.helper.AdapterHelper;
-import com.eh.propman.app.shared.modal.Result;
 import com.eh.propman.app.propertyType.modal.PropertyTypeCreateRequest;
 import com.eh.propman.app.propertyType.modal.PropertyTypeResponse;
 import com.eh.propman.app.propertyType.modal.PropertyTypeUpdateRequest;
@@ -18,8 +19,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import static com.eh.propman.app.shared.modal.Status.SUCCESS;
 
 @Service
 public class PropertyTypeAdapter extends AdapterHelper {
@@ -60,7 +59,7 @@ public class PropertyTypeAdapter extends AdapterHelper {
     public Result deleteById(final Long id) {
         validatePropertyType(id);
         Long propertyTypeId = propertyTypeService.deleteById(id);
-        return Result.builder().withId(propertyTypeId).withStatus(SUCCESS).build();
+        return Result.builder().withId(propertyTypeId).withStatus(Status.SUCCESS).build();
     }
 
     public PropertyTypeResponse update(final PropertyTypeUpdateRequest property) {

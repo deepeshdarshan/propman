@@ -1,6 +1,8 @@
-package com.eh.propman.commons.exceptions;
+package com.eh.propman.app.common.error;
 
-public enum ErrorTypes {
+import graphql.ErrorClassification;
+
+public enum ErrorTypes implements ErrorClassification {
 
     NOT_FOUND("Not Found"),
 

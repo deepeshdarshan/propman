@@ -8,6 +8,7 @@ input PropertyCreateRequest {
     url: String
     preference:Int!
     type: Long!
+    amenities: [Long]
 }
 
 input PropertyUpdateRequest {
@@ -19,6 +20,7 @@ input PropertyUpdateRequest {
     url: String
     preference:Int
     type: Long
+    amenities: [Long]
 }
 
 type PropertyResponse {
@@ -30,6 +32,7 @@ type PropertyResponse {
     url: String
     preference:Int
     type: PropertyTypeResponse
+    amenity: [AmenityResponse]
 }
 
 input PropertySearchRequest {

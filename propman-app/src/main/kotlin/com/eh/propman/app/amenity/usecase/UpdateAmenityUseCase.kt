@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller
 class UpdateAmenityUseCase(private val amenityAdapter: AmenityAdapter) {
 
     @MutationMapping
-    fun createAmenity(@Argument request: AmenityUpdateRequest): AmenityResponse {
+    fun updateAmenity(@Argument request: AmenityUpdateRequest): AmenityResponse {
         return amenityAdapter.update(request)
     }
 }
